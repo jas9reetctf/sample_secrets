@@ -1,0 +1,12 @@
+title = "Org Secret Detection Policy"
+
+[extend]
+useDefault = true
+
+# Internal API keys
+[[rules]]
+id = "tu-api-key"
+description = "Internal TU API Key"
+regex = '''\bTU-API-\d{8,14}\b'''
+entropy = 3.0
+tags = ["internal", "api"]
