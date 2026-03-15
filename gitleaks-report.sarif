@@ -1,0 +1,218 @@
+{
+ "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+ "version": "2.1.0",
+ "runs": [
+  {
+   "tool": {
+    "driver": {
+     "name": "gitleaks",
+     "semanticVersion": "v8.0.0",
+     "rules": [
+      {
+       "id": "tu-api-key",
+       "name": "Internal TU API Key",
+       "shortDescription": {
+        "text": "\\bTU-API-\\d{8,14}\\b"
+       }
+      },
+      {
+       "id": "hardcoded-db-password",
+       "name": "Hardcoded database password",
+       "shortDescription": {
+        "text": "(?i)(password|passwd|pwd|pg_pass|db_pass)\\s*[:=]\\s*[\"'][^\"']{6,}[\"']"
+       }
+      }
+     ]
+    }
+   },
+   "results": [
+    {
+     "message": {
+      "text": "aws-access-token has detected secret for file bucket_s3.py at commit 8cf4cd73a2e2f5e599735b2d9e3abfbb5a4e70ed."
+     },
+     "ruleId": "aws-access-token",
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "bucket_s3.py"
+        },
+        "region": {
+         "startLine": 10,
+         "startColumn": 34,
+         "endLine": 10,
+         "endColumn": 53,
+         "snippet": {
+          "text": "AKIAF6BAFJKR45SAWSZ5"
+         }
+        }
+       }
+      }
+     ],
+     "partialFingerprints": {
+      "commitSha": "8cf4cd73a2e2f5e599735b2d9e3abfbb5a4e70ed",
+      "email": "jas9reet.ctf@gmail.com",
+      "author": "jas9reetctf",
+      "date": "2026-03-15T20:37:26Z",
+      "commitMessage": "Update bucket_s3.py\n\nw"
+     }
+    },
+    {
+     "message": {
+      "text": "hardcoded-db-password has detected secret for file postgres_model.js at commit 930e5971a7d199ad998c2d1f678646f42cd88d2d."
+     },
+     "ruleId": "hardcoded-db-password",
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "postgres_model.js"
+        },
+        "region": {
+         "startLine": 4,
+         "startColumn": 6,
+         "endLine": 4,
+         "endColumn": 37,
+         "snippet": {
+          "text": "pg_pass=\"sup3rstr0ngpass1ForGGs\""
+         }
+        }
+       }
+      }
+     ],
+     "partialFingerprints": {
+      "commitSha": "930e5971a7d199ad998c2d1f678646f42cd88d2d",
+      "email": "jas9reet.ctf@gmail.com",
+      "author": "jas9reetctf",
+      "date": "2026-03-15T20:36:59Z",
+      "commitMessage": "Update postgres_model.js\n\nw"
+     }
+    },
+    {
+     "message": {
+      "text": "hardcoded-db-password has detected secret for file postgres_model.js at commit 26dc0bff34dc21b7ce80eeb0d0c57e4e3195595e."
+     },
+     "ruleId": "hardcoded-db-password",
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "postgres_model.js"
+        },
+        "region": {
+         "startLine": 4,
+         "startColumn": 6,
+         "endLine": 4,
+         "endColumn": 37,
+         "snippet": {
+          "text": "pg_pass=\"sup3rstr0ngpass1ForGGs\""
+         }
+        }
+       }
+      }
+     ],
+     "partialFingerprints": {
+      "commitSha": "26dc0bff34dc21b7ce80eeb0d0c57e4e3195595e",
+      "email": "jas9reet.ctf@gmail.com",
+      "author": "jas9reetctf",
+      "date": "2026-03-15T20:16:59Z",
+      "commitMessage": "Update postgres_model.js"
+     }
+    },
+    {
+     "message": {
+      "text": "tu-api-key has detected secret for file text.txt at commit 8371388c5f5358524081474638311388d80c8ee8."
+     },
+     "ruleId": "tu-api-key",
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "text.txt"
+        },
+        "region": {
+         "startLine": 1,
+         "startColumn": 1,
+         "endLine": 1,
+         "endColumn": 16,
+         "snippet": {
+          "text": "TU-API-123406588"
+         }
+        }
+       }
+      }
+     ],
+     "partialFingerprints": {
+      "commitSha": "8371388c5f5358524081474638311388d80c8ee8",
+      "email": "jas9reet.ctf@gmail.com",
+      "author": "jas9reetctf",
+      "date": "2026-03-15T19:56:18Z",
+      "commitMessage": "Create text.txt"
+     }
+    },
+    {
+     "message": {
+      "text": "aws-access-token has detected secret for file bucket_s3.py at commit 72f00a62423e1c26a8ab0675bd718acc8c6ce11e."
+     },
+     "ruleId": "aws-access-token",
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "bucket_s3.py"
+        },
+        "region": {
+         "startLine": 9,
+         "startColumn": 34,
+         "endLine": 9,
+         "endColumn": 53,
+         "snippet": {
+          "text": "AKIAF6BAFJKR45SAWSZ5"
+         }
+        }
+       }
+      }
+     ],
+     "partialFingerprints": {
+      "commitSha": "72f00a62423e1c26a8ab0675bd718acc8c6ce11e",
+      "email": "henri.hubert@gitguardian.com",
+      "author": "Henri Hubert",
+      "date": "2021-01-12T16:20:54Z",
+      "commitMessage": "feat(aws): add database connection"
+     }
+    },
+    {
+     "message": {
+      "text": "hardcoded-db-password has detected secret for file postgres_model.js at commit d95287b420366311433f4610b94a2c0844f4dce3."
+     },
+     "ruleId": "hardcoded-db-password",
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "postgres_model.js"
+        },
+        "region": {
+         "startLine": 5,
+         "startColumn": 6,
+         "endLine": 5,
+         "endColumn": 36,
+         "snippet": {
+          "text": "pg_pass=\"sup3rstr0ngpass1ForGG\""
+         }
+        }
+       }
+      }
+     ],
+     "partialFingerprints": {
+      "commitSha": "d95287b420366311433f4610b94a2c0844f4dce3",
+      "email": "henri.hubert@gitguardian.com",
+      "author": "Henri Hubert",
+      "date": "2021-01-12T16:27:19Z",
+      "commitMessage": "chore: add postgres connection information"
+     }
+    }
+   ]
+  }
+ ]
+}
